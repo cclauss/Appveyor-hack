@@ -9,7 +9,7 @@ environment:
 
     # Build images: https://www.appveyor.com/docs/build-environment/
     # Python versions: https://www.appveyor.com/docs/windows-images-software/#python
-    # Legacy Python 2.7.15 is the latest version and is pre-installed.
+    # Legacy Python 2.7.15 is the latest version and is pre-installed
 
     - PYTHON: C:\Python27
       PYTHON_VERSION: 2.7.x
