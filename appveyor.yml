@@ -7,13 +7,20 @@ image:
   
 environment:
   matrix:
-  # - TOXENV: py27  # https://devguide.python.org/devcycle/#end-of-life-branches
-  # - TOXENV: py35
-  #- TOXENV: py36    # https://devguide.python.org/#status-of-python-branches
-  #- TOXENV: py37
+    # - TOXENV: py27  # https://devguide.python.org/devcycle/#end-of-life-branches
+    # - TOXENV: py35
+    #- TOXENV: py36    # https://devguide.python.org/#status-of-python-branches
+    #  PYTHON: 3.6
+    #- TOXENV: py37
+    #  PYTHON: 3.7
   - TOXENV: py38
+    PYTHON: 3.8
   - TOXENV: py39    # Not yet present in Appveyor Windows image
+    PYTHON: 3.9
   - TOXENV: py310   # Not yet present in Appveyor Windows image
+    PYTHON: 3.10
+  allow_failures:
+  -  PYTHON: 3.10
 
 stack: python $PYTHON
 
