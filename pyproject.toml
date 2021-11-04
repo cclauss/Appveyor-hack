@@ -1,1 +1,12 @@
+# https://tox.wiki/en/latest/example/package.html
 
+[build-system]
+requires = [
+    "setuptools >= 35.0.2",
+    "setuptools_scm >= 2.0.0, <3"
+]
+build-backend = "setuptools.build_meta"
+
+# tox.ini
+[tox]
+isolated_build = True
