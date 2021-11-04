@@ -2,27 +2,35 @@
 ---
 image:
   #- macOS
-  #- Ubuntu
-  - Visual Studio 2019
+  - Ubuntu
+  #- Visual Studio 2019
   
 environment:
   matrix:
     # - TOXENV: py27  # https://devguide.python.org/devcycle/#end-of-life-branches
+    #- PYTHON: 2.7
     # - TOXENV: py35
-    - TOXENV: py36    # https://devguide.python.org/#status-of-python-branches
-    - TOXENV: py37
-    - TOXENV: py38
-    - TOXENV: py39
-    - TOXENV: py310
+    #- PYTHON: 3.5
+    #- TOXENV: py36    # https://devguide.python.org/#status-of-python-branches
+    - PYTHON: 3.6
+    #- TOXENV: py37
+    - PYTHON: 3.7
+    #- TOXENV: py38
+    - PYTHON: 3.8
+    #- TOXENV: py39
+    - PYTHON: 3.9
+    #- TOXENV: py310
+    - PYTHON: 3.10
 
+stack: python
 build: false
 
 install:
-  - pip3 --version || true
-  - py --list
-  - py -VV
-  - py -m pip install --upgrade pip
-  - py -m pip install tox
+  - pip --version || true
+  - py --list || true
+  - py -VV || true
+  - pip install --upgrade pip
+  - pip install tox
 
 test_script:
-  - py -m tox
+  - tox py
