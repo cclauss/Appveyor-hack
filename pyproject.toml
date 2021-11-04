@@ -9,4 +9,4 @@ build-backend = "setuptools.build_meta"
 
 # tox.ini
 [tox]
-isolated_build = True
+isolated_build = true
