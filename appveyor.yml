@@ -9,30 +9,21 @@ environment:
   matrix:
     # - TOXENV: py27  # https://devguide.python.org/devcycle/#end-of-life-branches
     # - TOXENV: py35
-    #- TOXENV: py36    # https://devguide.python.org/#status-of-python-branches
-    #  PYTHON: "3.6"
-    #- TOXENV: py37
-    #  PYTHON: "3.7"
+    - TOXENV: py36    # https://devguide.python.org/#status-of-python-branches
+    - TOXENV: py37
     - TOXENV: py38
-      PYTHON: "3.8"
-    - TOXENV: py39    # Not yet present in Appveyor Windows image
-      PYTHON: "3.9"
-    - TOXENV: py310   # Not yet present in Appveyor Windows image
-      PYTHON: "3.10"
-#  allow_failures:
-#    - PYTHON: "3.10"
-
-stack: python %PYTHON%
+    - TOXENV: py39
+    - TOXENV: py310
+   allow_failures:
+    - TOXENV: py310
 
 build: false
 
 install:
-  - py --list || true
-  - python -VV
-  - python -m pip install --upgrade pip
-  - python -m pip install tox
+  - py --list
+  - py -VV
+  - py -m pip install --upgrade pip
+  - py -m pip install tox
 
 test_script:
-  - python -c "import sys ; print(sys.version_info)"
-  #- python -m tox
-  
+  - py -m tox
