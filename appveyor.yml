@@ -27,12 +27,14 @@ stack: python $PYTHON
 build: false
 
 install:
-  - python --version
-  - python -c "import sys ; if sys.version_info < (3, 0): exit(1)"  # Stop the job on Python 2
+  - py --list || true
+  - python -VV
+  # - python -c "import sys ; print(sys.version_info) ; if sys.version_info < (3, 0): exit(1)"  # Stop the job on Python 2
   - python -m pip install --upgrade pip
   - python -m pip install tox
 
 test_script:
-  - python -c "import sys ; print(sys.version_info):
+  - python -c "import sys ; print(sys.version_info)"
+  - python -c "import sys ; print(sys.version_info) ; if sys.version_info < (3, 0): exit(1)"  # Stop the job on Python 2
   #- python -m tox
   
