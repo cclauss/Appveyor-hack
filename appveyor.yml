@@ -27,6 +27,8 @@ stack: python $PYTHON
 build: false
 
 install:
+  - python --version
+  - python -c "import sys ; if sys.version_info < (3, 0): exit(1)"  # Stop the job on Python 2
   - python -m pip install --upgrade pip
   - python -m pip install tox
 
