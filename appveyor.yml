@@ -1,5 +1,8 @@
 # appveyor.yml
 ---
+image:
+  - Visual Studio 2019
+
 environment:
   matrix:
   # - TOXENV: py27  # https://devguide.python.org/devcycle/#end-of-life-branches
