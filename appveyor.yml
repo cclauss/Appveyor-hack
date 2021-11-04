@@ -1,19 +1,19 @@
 # appveyor.yml - https://www.appveyor.com/docs/lang/python
 ---
 image:
-  - macOS
   - Ubuntu
   - Visual Studio 2019
+  - macOS
 
 environment:
   matrix:
-  - TOXENV: py36
-  - TOXENV: py37
-  - TOXENV: py38
+  #- TOXENV: py36
+  #- TOXENV: py37
+  #- TOXENV: py38
   - TOXENV: py39
-  - TOXENV: py310
+  #- TOXENV: py310
 
-stack: python 3.9
+# stack: python 3.9
 build: off
 
 install:
