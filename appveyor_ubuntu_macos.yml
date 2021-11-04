@@ -19,16 +19,13 @@ environment:
     - PYTHON: 3.8
     #- TOXENV: py39
     - PYTHON: 3.9
-    #- TOXENV: py310
-    - PYTHON: 3.10
+    #- TOXENV: py310  # Not yet in Appveyor Ubuntu image
+    #- PYTHON: 3.10
 
 stack: python $PYTHON
 build: false
 
 install:
-  - pip --version || true
-  - py --list || true
-  - py -VV || true
   - pip install --upgrade pip
   - pip install tox
 
