@@ -14,8 +14,6 @@ environment:
     - TOXENV: py38
     - TOXENV: py39
     - TOXENV: py310
-  allow_failures:
-    - TOXENV: py310
 
 build: false
 
