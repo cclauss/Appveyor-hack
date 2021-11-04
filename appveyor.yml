@@ -22,7 +22,7 @@ environment:
 #  allow_failures:
 #    - PYTHON: "3.10"
 
-stack: python $PYTHON
+stack: python %PYTHON%
 
 build: false
 
