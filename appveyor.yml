@@ -1,4 +1,4 @@
-# appveyor.yml
+# appveyor.yml - https://www.appveyor.com/docs/lang/python
 ---
 image:
   - Visual Studio 2019
@@ -16,7 +16,7 @@ environment:
 build: false
 
 install:
-  - py --list
+  # - py --list
   # - py -m pip install --upgrade pip
   - py -m pip install tox
 
