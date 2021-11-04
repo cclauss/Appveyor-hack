@@ -22,7 +22,7 @@ environment:
     #- TOXENV: py310
     - PYTHON: 3.10
 
-stack: python
+stack: python $PYTHON
 build: false
 
 install:
