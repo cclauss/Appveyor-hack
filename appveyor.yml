@@ -13,13 +13,16 @@ environment:
   - TOXENV: py39
   - TOXENV: py310
   - TOXENV: py311
-  - TOXENV: py312
+  # - TOXENV: py312  # Not yet
+  - PY_PYTHON: 3.11
+  - PY_PYTHON: 3.11-32
 
 build: false
 
 install:
   - py --list
-  # - py -m pip install --upgrade pip
+  - py -VV
+  - py -m pip install --upgrade pip
   - py -m pip install tox
 
 test_script:
