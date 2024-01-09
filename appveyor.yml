@@ -13,9 +13,9 @@ environment:
   - TOXENV: py39
   - TOXENV: py310
   - TOXENV: py311
-  # - TOXENV: py312  # Not yet
-  - PY_PYTHON: 3.11
-  - PY_PYTHON: 3.11-32
+  - TOXENV: py312
+  - PY_PYTHON: 3.12
+  - PY_PYTHON: 3.12-32
 
 build: false
 
