@@ -9,13 +9,14 @@ environment:
   # - TOXENV: py35
   # - TOXENV: py36
   # - TOXENV: py37
-  - TOXENV: py38    # https://devguide.python.org/versions
-  - TOXENV: py39
+  # - TOXENV: py38
+  - TOXENV: py39    # https://devguide.python.org/versions
   - TOXENV: py310
   - TOXENV: py311
   - TOXENV: py312
-  - PY_PYTHON: 3.12
-  - PY_PYTHON: 3.12-32
+  - TOXENV: py313
+  - PY_PYTHON: 3.13
+  - PY_PYTHON: 3.13-32
 
 build: false
 
