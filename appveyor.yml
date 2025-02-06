@@ -11,7 +11,7 @@ environment:
   - APPVEYOR_BUILD_WORKER_IMAGE: macos-sonoma
     TOXENV: py312
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
-    TOXENV: py312
+    TOXENV: py313
     # TOXENV: py313  # Why does py313 on Ubuntu2204 fail?
   # - TOXENV: py27  # end-of-life branches
   # - TOXENV: py35
@@ -36,8 +36,9 @@ install:
   # python3 defaults to 3.9.6 on macos-sonoma and 3.10.12 on Ubuntu2204
   # python3 maximum to 3.12.1 on macos-sonoma and 3.13.0 on Ubuntu2204
   # py or python defaults to 3.12.8 and maximum is 3.13.1 on Visual Studio 2022
+  # py is 64-bit and python is 32-bit on Visual Studios images
   - py -m pip install --upgrade pip || python3 -m pip install --upgrade pip 
   - py -m pip install tox || python3 -m pip install tox
 
 test_script:
-  - py -m tox || python3 -m tox
+  - py -m tox || python3 -m tox || python3.13 -m tox
