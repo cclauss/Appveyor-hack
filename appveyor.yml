@@ -6,7 +6,7 @@ image:
 environment:
   matrix:
   - APPVEYOR_BUILD_WORKER_IMAGE: macos-sonoma
-    TOXENV: py313
+    TOXENV: py312
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
     TOXENV: py313
   # - TOXENV: py27  # end-of-life branches
@@ -16,7 +16,7 @@ environment:
   # - TOXENV: py38
   - TOXENV: py39    # https://devguide.python.org/versions
   # - TOXENV: py310
-  - TOXENV: py311
+  # - TOXENV: py311
   # - TOXENV: py312
   - TOXENV: py313
   - PY_PYTHON: 3.13
@@ -25,10 +25,12 @@ environment:
 build: false
 
 install:
-  - py --list || true
-  - py -VV || true
+  - py --list || true  # py is Windows-only in AppVeyor
+  - py -VV || true  # py is Windows-only in AppVeyor
+  - python -VV || true  # python is Windows-only in AppVeyor
   - python3 -VV || python -VV  # python3 on macOS and Ubuntu but python or py on Windows
-  - python -VV || true
+  # python3 defaults to 3.9.6 on macos-sonoma and 3.10.12 on Ubuntu2204
+  # python3 maximum to 3.12.1 on macos-sonoma and 3.13.0 on Ubuntu2204
   - py -m pip install --upgrade pip
   - py -m pip install tox
 
