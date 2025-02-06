@@ -1,4 +1,7 @@
 # appveyor.yml - https://www.appveyor.com/docs/lang/python
+# https://www.appveyor.com/docs/linux-images-software/#python
+# https://www.appveyor.com/docs/macos-images-software/#python
+# https://www.appveyor.com/docs/windows-images-software/#python
 ---
 image:
   - Visual Studio 2022
@@ -19,7 +22,7 @@ environment:
   # - TOXENV: py311
   # - TOXENV: py312
   - TOXENV: py313
-  - PY_PYTHON: 3.13
+  - PY_PYTHON: 3.13  # %PY_PYTHON% sets py's version on Windows but it does not affect python
   - PY_PYTHON: 3.13-32
 
 build: false
@@ -32,7 +35,6 @@ install:
   # python3 defaults to 3.9.6 on macos-sonoma and 3.10.12 on Ubuntu2204
   # python3 maximum to 3.12.1 on macos-sonoma and 3.13.0 on Ubuntu2204
   # py or python defaults to 3.12.8 and maximum is 3.13.1 on Visual Studio 2022
-  # %PY_PYTHON% sets py but it does not effect python
   - py -m pip install --upgrade pip || python3 -m pip install --upgrade pip 
   - py -m pip install tox || python3 -m pip install tox
 
