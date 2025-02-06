@@ -25,14 +25,16 @@ environment:
 build: false
 
 install:
-  - py --list || true  # py is Windows-only in AppVeyor
+  - py --list || which -a python3  # py is Windows-only in AppVeyor
   - py -VV || true  # py is Windows-only in AppVeyor
   - python -VV || true  # python is Windows-only in AppVeyor
   - python3 -VV || python -VV  # python3 on macOS and Ubuntu but python or py on Windows
   # python3 defaults to 3.9.6 on macos-sonoma and 3.10.12 on Ubuntu2204
   # python3 maximum to 3.12.1 on macos-sonoma and 3.13.0 on Ubuntu2204
-  - py -m pip install --upgrade pip
-  - py -m pip install tox
+  # py or python defaults to 3.12.8 and maximum is 3.13.1 on Visual Studio 2022
+  # %PY_PYTHON% sets py but it does not effect python
+  - py -m pip install --upgrade pip || python3 -m pip install --upgrade pip 
+  - py -m pip install tox || python3 -m pip install tox
 
 test_script:
-  - py -m tox
+  - py -m tox || python3 -m tox
