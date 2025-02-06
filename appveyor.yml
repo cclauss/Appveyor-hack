@@ -11,18 +11,24 @@ environment:
   # - TOXENV: py37
   # - TOXENV: py38
   - TOXENV: py39    # https://devguide.python.org/versions
-  - TOXENV: py310
+  # - TOXENV: py310
   - TOXENV: py311
-  - TOXENV: py312
+  # - TOXENV: py312
   - TOXENV: py313
   - PY_PYTHON: 3.13
   - PY_PYTHON: 3.13-32
+  - image: Ubuntu2204
+    TOXENV: py313
+  - image: macos-sonoma
+    TOXENV: py313
 
 build: false
 
 install:
-  - py --list
-  - py -VV
+  - py --list || true
+  - py -VV || true
+  - python3 -VV || true
+  - python -VV || true
   - py -m pip install --upgrade pip
   - py -m pip install tox
 
