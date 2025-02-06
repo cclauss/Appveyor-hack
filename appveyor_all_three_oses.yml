@@ -2,8 +2,10 @@
 ---
 image:
   - Ubuntu
-  - Visual Studio 2019
+  - Ubuntu2204
+  - Visual Studio 2022
   - macOS
+  - macos-sonoma
 
 environment:
   matrix:
@@ -12,11 +14,19 @@ environment:
   #- TOXENV: py38
   - TOXENV: py39
   #- TOXENV: py310
+  #- TOXENV: py311
+  #- TOXENV: py312
+  - TOXENV: py313
 
-# stack: python 3.9
 build: off
 
 install:
+  - node --version
+  - npm --version
+  - python3 --version || true
+  - python --version || true
+  - py --list || true
+  - py -VV || true
   - pip install tox
 
 test_script:
