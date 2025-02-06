@@ -11,7 +11,8 @@ environment:
   - APPVEYOR_BUILD_WORKER_IMAGE: macos-sonoma
     TOXENV: py312
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
-    TOXENV: py313
+    TOXENV: py312
+    # TOXENV: py313  # Why does py313 on Ubuntu2204 fail?
   # - TOXENV: py27  # end-of-life branches
   # - TOXENV: py35
   # - TOXENV: py36
