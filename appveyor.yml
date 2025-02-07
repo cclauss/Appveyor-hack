@@ -26,6 +26,7 @@ environment:
   - PY_PYTHON: 3.13  # %PY_PYTHON% sets py's version on Windows but it does not affect python
   - PY_PYTHON: 3.13-32
 
+stack: python 3.13  # For Ubuntu
 build: false
 
 install:
@@ -41,4 +42,4 @@ install:
   - py -m pip install tox || python3 -m pip install tox
 
 test_script:
-  - py -m tox || python3 -m tox || python3.13 -m tox
+  - py -m tox || python3 -m tox
